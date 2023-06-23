@@ -14,11 +14,18 @@
 .main-container {
   padding: 15px;
 }
-.main-container .card {
+.main-container .notepad-card {
   height: 70vh;
 }
-.main-container .card .card-body .notepad {
+.main-container .notepad-card .card-body .notepad {
   height: 100%;
   resize: none;
   border: none;
+}
+.main-container .notepad-card .modal-container .dir-container {
+  height: 40vh;
+}
+.main-container .notepad-card .modal-container .dir-container .dir-content {
+  height: 100%;
+  overflow-y: scroll;
 }/*# sourceMappingURL=index.css.map */

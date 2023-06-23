@@ -15,7 +15,7 @@
 .main-container {
     padding: 15px;
 
-    .card {
+    .notepad-card {
         height: 70vh;
 
         .card-body {
@@ -25,5 +25,15 @@
                 border: none;
             }
         }
+        .modal-container {
+            .dir-container {
+                height: 40vh;
+                .dir-content {
+                    height: 100%;
+                    overflow-y: scroll;
+                }
+            }
+        }
     } 
+
 }

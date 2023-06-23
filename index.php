@@ -1,11 +1,23 @@
 <?php
 
+function guardarArchivo($nombre, $contenido){
+    
+}
+
 $nombreInicial = "*sintitulo.txt";
 $nombreArchivo = $nombreInicial;
+$text = "Empezar a escribir aquí.";
 
 if(isset($_POST)){
     if (isset($_POST['btnNombrar'])) {
         $nombreArchivo = $_POST['nombreArchivo']. ".txt";
+
+        if(isset($_POST['notepad'])){
+            $text = $_POST['notepad'];
+        }
+    }
+    if(isset($_POST['btnGuardar'])){
+
     }
     if (isset($_POST['btnGuardarComo'])) {
         $nombreArchivo = "Save As";
@@ -41,7 +53,7 @@ if(isset($_POST)){
     </header>
     <main class="main-container my-3">
         <div class="notepad-container container-xl">
-            <article class="card px-0">
+            <article class="notepad-card card px-0">
                 <div class="card-header">
                     <span class="text-muted">
                         <?php
@@ -55,54 +67,65 @@ if(isset($_POST)){
                 </div>
                 <form method="post" id="notepadForm" action="<?php $_SERVER['PHP_SELF'] ?>" class="card-body p-0">
                     <?php
-                    if (isset($_POST['btnGuardar'])) {
-                        echo "<textarea class='notepad form-control' name='notepad' id='notepad' required>{$global}</textarea>";
+                    if ($nombreArchivo != $nombreInicial) {
+                        echo "<textarea class='notepad form-control' name='notepad' id='notepad'>{$text}</textarea>";
                     } else {
-                        echo "<textarea class='notepad form-control' name='notepad' id='notepad' required placeholder='Empieza a escribir aquí...'></textarea>";
+                        echo "<textarea class='notepad form-control' name='notepad' id='notepad' placeholder='Empieza a escribir aquí...'></textarea>";
                     }
                     ?>
 
                     <section class="footer-buttons d-flex my-3 justify-content-end">
                         <?php 
                             if($nombreArchivo == $nombreInicial){
-                                echo '<button type="button" name="btnInicial" class="btn btn-primary me-2" data-bs-toggle="modal" 
-                                data-bs-target="#ModalGuardar">Guardar...</button>';
+                                echo '<button type="submit" name="btnInicial" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#ModalGuardar"
+                                >Guardar...</button>';
                             } else {
-                                echo '<button type="submit" name="btnGuardar" class="btn btn-primary me-2" data-bs-toggle="modal" 
-                                data-bs-target="#ModalGuardar">Guardar</button>';
+                                echo '<button type="submit" name="btnGuardar" class="btn btn-primary me-2">Guardar</button>';
                             }
                         ?>
                         <button type="button" name="btnGuardarComo" class="btn btn-secondary">Guardar como</button>
                     </section>
+                    <article class="modal-container">
+                        <div class="modal fade" id="ModalGuardar" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Guardar como</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <span class="dir-card-title fw-semibold">Directorio: </span>
+                                            <div class="card dir-container mb-2 mt-2">
+                                                <div class="card-body dir-content">
+                                                    <?php
+                                                        $files = scandir($_SERVER["DOCUMENT_ROOT"]);
+                                                        foreach($files as $archivo){
+                                                            echo $archivo; ?>
+                                                            <br>
+                                                            <?php
+                                                        }
+                                                    ?>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="nombreArchivo" class="form-label">Nombre: </label>
+                                                <input type="text" class="form-control" name="nombreArchivo" id="nombreArchivo" placeholder="Nombre del archivo" required>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" name="btnNombrar" class="btn btn-primary">Guardar</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
                 </form>
             </article>
         </div>
-
-        <article class="modal-container">
-            <div class="modal fade" id="ModalGuardar" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Guardar como</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="nombreArchivo" class="form-label">Nombre: </label>
-                                    <input type="text" class="form-control" name="nombreArchivo" id="nombreArchivo" placeholder="Nombre del archivo" required>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" name="btnNombrar" class="btn btn-primary">Guardar</button>
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </article>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
