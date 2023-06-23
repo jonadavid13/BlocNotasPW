@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: rgb(130, 130, 236);
+}
+.header .header-title {
+  color: #FFF;
+}
+
+.main-container {
+  padding: 15px;
+}
+.main-container .card {
+  height: 70vh;
+}
+.main-container .card .card-body .notepad {
+  height: 100%;
+  resize: none;
+  border: none;
+}/*# sourceMappingURL=index.css.map */
