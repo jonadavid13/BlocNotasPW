@@ -13,27 +13,32 @@
 }
 
 .main-container {
-    padding: 15px;
-
-    .notepad-card {
-        height: 70vh;
-
-        .card-body {
-            .notepad {
-                height: 100%;
-                resize: none;
-                border: none;
-            }
-        }
-        .modal-container {
-            .dir-container {
-                height: 40vh;
-                .dir-content {
+    .notepad-container {
+        .notepad-card {
+            height: 70vh;
+    
+            .card-body {
+                .notepad {
                     height: 100%;
-                    overflow-y: scroll;
+                    resize: none;
+                    border: none;
+                }
+            }
+            .modal-container {
+                .dir-container {
+                    height: 40vh;
+                    .dir-content {
+                        height: 100%;
+                        overflow-y: scroll;
+                    }
                 }
             }
         }
-    } 
-
+        
+        .control-panel {
+            .disabled-input {
+                background-color: rgb(209, 209, 209);
+            }
+        }
+    }
 }

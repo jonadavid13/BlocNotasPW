@@ -11,21 +11,21 @@
   color: #FFF;
 }
 
-.main-container {
-  padding: 15px;
-}
-.main-container .notepad-card {
+.main-container .notepad-container .notepad-card {
   height: 70vh;
 }
-.main-container .notepad-card .card-body .notepad {
+.main-container .notepad-container .notepad-card .card-body .notepad {
   height: 100%;
   resize: none;
   border: none;
 }
-.main-container .notepad-card .modal-container .dir-container {
+.main-container .notepad-container .notepad-card .modal-container .dir-container {
   height: 40vh;
 }
-.main-container .notepad-card .modal-container .dir-container .dir-content {
+.main-container .notepad-container .notepad-card .modal-container .dir-container .dir-content {
   height: 100%;
   overflow-y: scroll;
+}
+.main-container .notepad-container .control-panel .disabled-input {
+  background-color: rgb(209, 209, 209);
 }/*# sourceMappingURL=index.css.map */
