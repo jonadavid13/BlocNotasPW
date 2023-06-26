@@ -19,12 +19,18 @@
   resize: none;
   border: none;
 }
-.main-container .notepad-container .notepad-card .modal-container .dir-container {
+.main-container .notepad-container .control-panel .dir-container {
   height: 40vh;
 }
-.main-container .notepad-container .notepad-card .modal-container .dir-container .dir-content {
-  height: 100%;
+.main-container .notepad-container .control-panel .dir-container .dir-content {
   overflow-y: scroll;
+}
+.main-container .notepad-container .control-panel .dir-container .dir-content .lista-archivos {
+  text-decoration: none;
+}
+.main-container .notepad-container .control-panel .dir-container .dir-content .lista-archivos .valor-invisible {
+  background-color: gray;
+  display: none;
 }
 .main-container .notepad-container .control-panel .disabled-input {
   background-color: rgb(209, 209, 209);

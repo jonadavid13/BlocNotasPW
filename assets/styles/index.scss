@@ -4,6 +4,8 @@
     padding: 0;
 }
 
+$background-header: rgb(130, 130, 236);
+
 .header {
     background-color: rgb(130, 130, 236);
 
@@ -24,21 +26,27 @@
                     border: none;
                 }
             }
-            .modal-container {
-                .dir-container {
-                    height: 40vh;
-                    .dir-content {
-                        height: 100%;
-                        overflow-y: scroll;
+        }
+        .control-panel {
+            .dir-container {
+                height: 40vh;
+                .dir-content {
+                    overflow-y: scroll;
+                    
+                    .lista-archivos {
+                        text-decoration: none;
+            
+                        .valor-invisible {
+                            background-color: gray;
+                            display: none;
+                        }
                     }
                 }
             }
-        }
-        
-        .control-panel {
             .disabled-input {
                 background-color: rgb(209, 209, 209);
             }
+    
         }
     }
 }
