@@ -7,9 +7,10 @@
 $background-header: rgb(130, 130, 236);
 
 .header {
-    background-color: rgb(130, 130, 236);
+    background-color: rgb(30, 30, 122);
 
     .header-title {
+        color: #535353;
         color: #FFF;
     }
 }
@@ -35,11 +36,6 @@ $background-header: rgb(130, 130, 236);
                     
                     .lista-archivos {
                         text-decoration: none;
-            
-                        .valor-invisible {
-                            background-color: gray;
-                            display: none;
-                        }
                     }
                 }
             }
@@ -48,5 +44,8 @@ $background-header: rgb(130, 130, 236);
             }
     
         }
+    }
+    .valor-invisible {
+        display: none;
     }
 }
